@@ -22,6 +22,7 @@ jobs:
           cd PhoenixTheatreAngular
           npx ci
           npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
+          npx lint
           
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
