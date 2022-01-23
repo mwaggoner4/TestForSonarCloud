@@ -21,10 +21,8 @@ jobs:
       - name: Test Coverage
         run: |
           cd PhoenixTheatreAngular
-          npm install
-          npm run lint
-          npm run build -- -- prod
-          npm test --code-coverage --no-watch --browsers=ChromeHeadless
+          npx ci
+          npx test --code-coverage --no-watch --browsers=ChromeHeadless
           
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
