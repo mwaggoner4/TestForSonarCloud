@@ -14,7 +14,8 @@ jobs:
           
       - name: Test Coverage
         run: |
-          cd PhoenixTheatreAngular/karma.conf.js
+          cd PhoenixTheatreAngular
+          ci
           npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
           
       - name: SonarCloud Scan
