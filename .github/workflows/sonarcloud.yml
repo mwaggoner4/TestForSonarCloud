@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -19,11 +23,7 @@ jobs:
           cd PhoenixTheatreAngular
           npx ci
           npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
-          cd ..
-    
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          npx run lint
           
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
